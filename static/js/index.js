@@ -18,4 +18,34 @@ $(document).ready(function() {
 	
     bulmaSlider.attach();
 
+    // Tab switching functionality
+    const tabs = document.querySelectorAll('.tabs li');
+    const tabPanes = document.querySelectorAll('.tab-pane');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Remove active class from all tabs
+        tabs.forEach(t => t.classList.remove('is-active'));
+        
+        // Add active class to clicked tab
+        this.classList.add('is-active');
+        
+        // Hide all tab panes
+        tabPanes.forEach(pane => {
+          pane.style.display = 'none';
+          pane.classList.remove('is-active');
+        });
+        
+        // Show corresponding tab pane
+        const targetTab = this.getAttribute('data-tab');
+        const targetPane = document.getElementById(targetTab);
+        if (targetPane) {
+          targetPane.style.display = 'block';
+          targetPane.classList.add('is-active');
+        }
+      });
+    });
+
 })
