@@ -48,4 +48,14 @@ $(document).ready(function() {
       });
     });
 
+    // Handle reference citations click events
+    document.addEventListener('click', function(e) {
+        if (e.target.tagName.toLowerCase() === 'mcreference') {
+            const link = e.target.getAttribute('link');
+            if (link) {
+                window.open(link, '_blank');
+            }
+        }
+    });
+
 })

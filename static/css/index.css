@@ -189,5 +189,24 @@ body {
   font-size: smaller;
 }
 
+/* Reference citation styles */
+mcreference {
+  display: inline;
+  font-size: 0.8em;
+  vertical-align: super;
+  color: #3273dc;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 0 2px;
+  border-radius: 2px;
+  background-color: rgba(50, 115, 220, 0.1);
+  transition: all 0.2s ease;
+}
+
+mcreference:hover {
+  background-color: rgba(50, 115, 220, 0.2);
+  text-decoration: underline;
+}
+
 
 

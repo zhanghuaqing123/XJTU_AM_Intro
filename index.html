@@ -25,7 +25,6 @@
 
 
   <title>Academic Project Page</title>
-  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
   rel="stylesheet">
 
@@ -81,7 +80,9 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <img src="static/images/AM_real_time_monitor.gif" alt="AM Real Time Monitor" style="width: 100%; height: auto;">
+      <video src="static/images/real_time_monitor.mp4" alt="AM Real Time Monitor" style="width: 100%; height: auto;" autoplay muted loop controls>
+        Your browser does not support the video tag.
+      </video>
       <h2 class="subtitle has-text-centered">
         Real-time monitor and feedback control of FDM additive manufacturing. 
       </h2>
@@ -115,7 +116,7 @@
             <li data-tab="paper3">
               <a>
                 <span class="icon is-small"><i class="fas fa-brain"></i></span>
-                <span>Quality Control System</span>
+                <span>Multimodal Large Model</span>
               </a>
             </li>
           </ul>
@@ -143,7 +144,7 @@
                   </span>
                   
                   <span class="link-block">
-                    <a href="https://huggingface.co/datasets/zhanghuaqing/XJTU_AM" target="_blank"
+                    <a href="https://www.repository.cam.ac.uk/items/6d77cd6d-8569-4bf4-9d5f-311ad2a49ac8" target="_blank"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fas fa-database"></i>
@@ -192,6 +193,22 @@
               </div>
               
               <div class="box">
+                <h4 class="title is-5">Dataset Description</h4>
+                <p>
+                  This study utilizes the open-source dataset from the <strong>University of Cambridge</strong> <mcreference link="https://www.repository.cam.ac.uk/items/6d77cd6d-8569-4bf4-9d5f-311ad2a49ac8" index="0">0</mcreference>, which was originally developed for the research "<em>Generalisable 3D printing error detection and correction via multi-head neural networks</em>". The dataset contains <strong>1,272,273 labelled images</strong> of the extrusion 3D printing process, captured using a camera mounted next to the printer nozzle during material deposition for <strong>192 different printed parts</strong> covering a range of geometries, material colours, and lighting conditions <mcreference link="https://www.repository.cam.ac.uk/items/6d77cd6d-8569-4bf4-9d5f-311ad2a49ac8" index="0">0</mcreference>.
+                </p>
+                <p>
+                  Each image in the dataset is comprehensively labelled with critical process parameters including <strong>flow rate, lateral speed, Z offset, hotend temperature, hotend target temperature, bed temperature, timestamp, and nozzle tip coordinates</strong> <mcreference link="https://www.repository.cam.ac.uk/items/6d77cd6d-8569-4bf4-9d5f-311ad2a49ac8" index="0">0</mcreference>. The data was collected through an automated pipeline from a fleet of <strong>8 extrusion printers</strong> with systematic sampling of different printing parameter combinations.
+                </p>
+                <p>
+                  <strong>Domain Shift Challenge:</strong> A critical observation from this dataset is that <strong>significant domain shifts exist between almost all sub-datasets</strong> due to variations in printer configurations, environmental conditions, material properties, and geometric complexities. These domain discrepancies pose substantial challenges for model generalization across different printing scenarios, which forms the core motivation for our transfer learning framework.
+                </p>
+                <p>
+                  <strong>Experimental Validation:</strong> In our study, we specifically selected and utilized <strong>datasets 109, 131, and 132</strong> from this comprehensive collection to validate our proposed adaptive transfer learning approach. These datasets represent diverse printing conditions and demonstrate varying degrees of domain shift, providing an ideal testbed for evaluating the effectiveness of our domain adaptation strategies.
+                </p>
+              </div>
+              
+              <div class="box">
                 <h4 class="title is-5">Method Overview</h4>
                 <figure class="image">
                   <img src="static/images/AM_method_overview.jpg" alt="AM Method Overview" style="width: 100%; height: auto;">
@@ -206,7 +223,7 @@
           <!-- Paper 2 Content -->
           <div id="paper2" class="tab-pane" style="display: none;">
             <div class="content has-text-justified">
-              <h3 class="title is-4">Multi-View Online Monitoring System for Fused Filament Fabrication 3D Printing</h3>
+              <h3 class="title is-4">Multi-view deep information fusion framework for online quality monitoring and autonomous correction in material extrusion additive manufacturing</h3>
               <p class="subtitle is-6"><strong>Journal:</strong> Advanced Manufacturing Technology, 2024</p>
               
               <!-- Paper 2 Links -->
@@ -284,6 +301,62 @@
               </div>
               
               <div class="box">
+                <h4 class="title is-5">Dataset Description</h4>
+                
+                <h5 class="title is-6"><strong>2.1 Dataset Overview</strong></h5>
+                <p>
+                  This dataset is specifically designed for <strong>multi-view online quality monitoring and autonomous error correction</strong> research in <strong>Fused Filament Fabrication (FFF)</strong> additive manufacturing processes. Data collection is conducted around actual 3D printer platforms, focusing on two major application scenarios: <strong>defect detection and process control</strong>. The dataset systematically records imaging and parameter information during the printing process under different process parameters, different part geometries, and diverse natural lighting environments.
+                </p>
+                <p>
+                  Its most distinctive feature lies in the <strong>synchronized provision of real-time image data from three typical viewpoints</strong> along with <strong>full-process automated defect labeling</strong>, focusing on common defect states such as over-extrusion and under-extrusion. The rich sample sources and highly accurate annotation information provide a solid foundation for algorithm development and performance evaluation in <strong>deep learning, multi-view information fusion, and intelligent manufacturing process monitoring</strong>.
+                </p>
+                
+                <h5 class="title is-6"><strong>2.2 Data Collection and Experimental Platform</strong></h5>
+                <p><strong>1. Hardware Platform:</strong></p>
+                <ul>
+                  <li><strong>Printer Model:</strong> Ender-3 S1 FFF 3D Printer</li>
+                  <li><strong>Cameras:</strong> Three Logitech C270 cameras, resolution 1280×720, acquisition frequency 2.5Hz</li>
+                  <li><strong>Control and Processing Unit:</strong> Raspberry Pi 4B (running Raspbian and OctoPrint), responsible for synchronized acquisition and G-code parameter adjustment</li>
+                </ul>
+                
+                <p><strong>2. Camera Layout and Viewpoints:</strong></p>
+                <ul>
+                  <li><strong>45° viewpoint:</strong> Balances vertical and horizontal features, suitable for overall observation</li>
+                  <li><strong>60° viewpoint:</strong> Moderately supplements information from different spatial levels</li>
+                  <li><strong>90° viewpoint (side view):</strong> Focuses on capturing inter-layer bonding and vertical surface quality</li>
+                </ul>
+                <p>
+                  Three cameras synchronously capture the printing state at the same moment, ensuring <strong>multi-view spatiotemporal consistency</strong> and effectively overcoming occlusion and blind spot problems.
+                </p>
+                
+                <p><strong>3. Data Collection Process:</strong></p>
+                <p>Two strategies are employed to generate diverse defect and normal samples:</p>
+                <ul>
+                  <li><strong>Typical parameter combinations:</strong> Systematically set flow rate and feed rate to low/normal/high multiple combinations, each group with rich test samples, achieving full coverage from severe under-extrusion to severe over-extrusion</li>
+                  <li><strong>Automatic parameter perturbation:</strong> Real-time monitoring with random dynamic parameter adjustments during the process, making the printing process automatically experience different defect states, enhancing data richness and authenticity</li>
+                </ul>
+                <p>
+                  Synchronized collection of three-viewpoint images and corresponding labels, with all photos accompanied by precise G-code parameter records.
+                </p>
+                
+                <p><strong>4. Printing Objects:</strong></p>
+                <p>
+                  Includes <strong>5 types of typical geometric complexity</strong> printing parts (such as strips, cubes, boats, sculptures, etc.), covering both simple and complex structures.
+                </p>
+                
+                <h5 class="title is-6"><strong>2.3 Data Content and Annotation Structure</strong></h5>
+                <p>
+                  Each data group contains <strong>three images</strong>, recording close-ups of the nozzle and deposition area from 45°, 60°, and 90° viewpoints respectively. All images have been center-cropped and scaled to ensure consistent feature regions and meet network input requirements. Supporting labels cover <strong>five major printing states</strong> — severe under-extrusion, mild under-extrusion, normal, mild over-extrusion, and severe over-extrusion. All data strictly correspond to actual printing flow rate and feed rate parameter combinations.
+                </p>
+                <p>
+                  To enhance data diversity and generalization capability, parameter perturbations and lighting variations were intentionally introduced during the experimental process. Label information is uniformly stored in the <strong>labels.csv file</strong>, with complete annotations by group number, viewpoint, category, and parameters.
+                </p>
+                <p>
+                  The entire dataset contains a total of <strong>83,012 groups</strong>, each group containing three-viewpoint images, totaling <strong>249,036 images</strong>. The dataset is divided into training, validation, and test sets in a <strong>7:1.5:1.5 ratio</strong>, ensuring sufficient generalization capability for models under multi-class imbalanced conditions.
+                </p>
+              </div>
+              
+              <div class="box">
                 <h4 class="title is-5">Multi-View System Architecture</h4>
                 <figure class="image">
                   <img src="static/images/Multi-view.png" alt="Multi-View System Architecture" style="width: 100%; height: auto;">
@@ -298,8 +371,8 @@
           <!-- Paper 3 Content -->
           <div id="paper3" class="tab-pane" style="display: none;">
             <div class="content has-text-justified">
-              <h3 class="title is-4">Intelligent Quality Control Framework for Industrial Additive Manufacturing</h3>
-              <p class="subtitle is-6"><strong>Journal:</strong> Manufacturing Letters, 2024</p>
+              <h3 class="title is-4">Multimodal-Large-Model-Driven Online Monitoring for Fused-Deposition Additive Manufacturing</h3>
+              <p class="subtitle is-6"><strong>Journal:</strong> Chinese Journal of Mechanical Engineering, 2024</p>
               
               <!-- Paper 3 Links -->
               <div class="has-text-centered mb-4">
@@ -315,7 +388,7 @@
                   </span>
                   
                   <span class="link-block">
-                    <a href="https://huggingface.co/datasets/zhanghuaqing/Quality-Control-AM" target="_blank"
+                    <a href="https://huggingface.co/datasets/zhanghuaqing/Multimodal-Large-Model-AM" target="_blank"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fas fa-database"></i>
@@ -325,7 +398,7 @@
                   </span>
                   
                   <span class="link-block">
-                    <a href="https://github.com/zhanghuaqing123/Quality-Control-Framework" target="_blank"
+                    <a href="https://github.com/zhanghuaqing123/Multimodal-Large-Model-AM" target="_blank"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
@@ -335,7 +408,7 @@
                   </span>
                   
                   <span class="link-block">
-                    <a href="https://arxiv.org/abs/2024.quality.control" target="_blank"
+                    <a href="https://arxiv.org/abs/2024.multimodal.large.model" target="_blank"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="ai ai-arxiv"></i>
@@ -349,28 +422,32 @@
               <div class="box">
                 <h4 class="title is-5">Abstract</h4>
                 <p>
-                  We propose an <strong>intelligent quality control framework</strong> that integrates <strong>machine learning algorithms</strong> with <strong>statistical process control</strong> methods for industrial-scale additive manufacturing. The framework provides <strong>predictive quality assessment</strong> and <strong>automated process optimization</strong>.
+                  We introduce the first <strong>multimodal large-model framework</strong> for <strong>fused-deposition modeling (FDM)</strong> that closes the loop between sensing, diagnosis, and control.
                 </p>
                 <p>
-                  Main features:
+                  <strong>Key breakthroughs:</strong>
                 </p>
                 <ul>
-                  <li><strong>Predictive quality modeling</strong> using ensemble methods</li>
-                  <li><strong>Statistical process control</strong> with adaptive control limits</li>
-                  <li><strong>Multi-objective optimization</strong> for process parameters</li>
-                  <li><strong>Industry 4.0 integration</strong> with IoT and cloud computing</li>
+                  <li><strong>Multimodal perception:</strong> 120k in-process images (PLA/ABS, cubes/wrenches/embossed parts) coupled with hierarchical text labels create aligned vision–language samples</li>
+                  <li><strong>Zero-/few-shot generalization:</strong> CLIP-based contrastive learning links visual cues to process semantics. Zero-shot reaches 46.16% mean accuracy (+9.09% vs. ResNet18); 15-shot tuning hits 91.10% (+29.51% vs. ViT-B/16)</li>
+                  <li><strong>Real-time closed-loop control:</strong> A sliding-window feedback policy corrects anomalies (140% over-extrusion → 105%) within 10s, cutting porosity by 80% and boosting inter-layer strength by 35%</li>
                 </ul>
                 <p>
-                  Industrial validation shows 30% reduction in defect rates and 25% improvement in production efficiency.
+                  <strong>Impact:</strong>
                 </p>
+                <ul>
+                  <li>The system shatters the generalization limits of single-modal models</li>
+                  <li>Adapts instantly to new materials and geometries</li>
+                  <li>Offers industry-grade FDM monitoring with minimal labeling</li>
+                </ul>
               </div>
               
               <div class="box">
-                <h4 class="title is-5">Framework Overview</h4>
+                <h4 class="title is-5">Multimodal Framework Architecture</h4>
                 <div class="notification is-info is-light">
                   <p class="has-text-centered">
                     <i class="fas fa-info-circle"></i>
-                    Framework diagram will be available soon.
+                    Multimodal large model framework diagram will be available soon.
                   </p>
                 </div>
               </div>
