@@ -69,7 +69,7 @@
 
                   <div class="is-size-5 publication-authors">
                     <span class="author-block">School of Mechanical Engineering, Xi’an Jiaotong University</span>
-                    <span class="eql-cntrb"><small><br>Contact: zhang1qing2hua3@stu.xjtu.edu.cn (ZHANG Huaqing), zhaozhibin@stu.xjtu.edu.cn (Zhao Zhibin), yubowen@stu.xjtu.edu.cn (Yu Bowen)</small></span>
+                    <span class="eql-cntrb"><small><br>Contact: zhang1qing2hua3@stu.xjtu.edu.cn (ZHANG Huaqing), zhaozhibin@xjtu.edu.cn (Zhao Zhibin)</small></span>
                   </div>
 
 
@@ -335,7 +335,7 @@
                 <ul>
                   <li><strong>Multi-view monitoring system</strong> based on Ender-3 S1 platform with three high-resolution cameras at different angles</li>
                   <li><strong>Automated acquisition pipeline</strong> for systematic capture and annotation of synchronized multi-view images</li>
-                  <li><strong>Large-scale dataset</strong> of 249,036 images with rigorous classification into five typical defect categories</li>
+                  <li><strong>Large-scale dataset</strong> of 289,296 images with rigorous classification into five typical defect categories</li>
                   <li><strong>Multi-view deep information fusion algorithms</strong> achieving over 97% defect detection accuracy</li>
                   <li><strong>Real-time adaptive parameter correction</strong> for closed-loop optimization</li>
                 </ul>
@@ -405,7 +405,10 @@
                   To enhance data diversity and generalization capability, parameter perturbations and lighting variations were intentionally introduced during the experimental process. Label information is uniformly stored in the <strong>labels.csv file</strong>, with complete annotations by group number, viewpoint, category, and parameters.
                 </p>
                 <p>
-                  The entire dataset contains a total of <strong>83,012 groups</strong>, each group containing three-viewpoint images, totaling <strong>249,036 images</strong>. The dataset is divided into training, validation, and test sets in a <strong>7:1.5:1.5 ratio</strong>, ensuring sufficient generalization capability for models under multi-class imbalanced conditions.
+                  The entire dataset contains a total of <strong>96,432 groups</strong>, each group containing three-viewpoint images, totaling <strong>289,296 images</strong>. Specifically, the training dataset includes <strong>84,632 groups (253,896 images)</strong> for basic defect detection, and an additional <strong>10,000 groups (30,000 images)</strong> from Dataset 2 specifically collected to address occlusion scenarios, supplementing the monitoring system's capability under complex geometric conditions. The combined dataset is divided into training, validation, and test sets in a <strong>7:1.5:1.5 ratio</strong>, ensuring sufficient generalization capability for models under multi-class imbalanced conditions.
+                </p>
+                <p>
+                  <strong>Dataset 2 Supplement:</strong> The second dataset specifically addresses the challenge of <strong>occlusion detection</strong> in complex printing scenarios. This supplementary dataset contains <strong>10,000 groups (30,000 images)</strong> captured under various occlusion conditions, enhancing the robustness of the multi-view monitoring system when dealing with complex geometric structures and partial visibility scenarios.
                 </p>
               </div>
               
